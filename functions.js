@@ -5,7 +5,15 @@
  * - logs "Hello <name>" if there is a name
  */
 function greet(name) {
-  // Your code here
+    if (name === undefined || name === '')
+    {
+        console.log("Hello");
+    }
+    else
+    {
+        console.log(`Hello ${name}`);
+    }
+  
 }
 
 /**
@@ -14,7 +22,15 @@ function greet(name) {
  * - returns true if it's odd, false otherwise
  */
 function isOdd(n) {
-  // Your code here
+    if (n %2 === 0)
+    {
+        return false;
+    }
+    else if (n%2 !== 0)
+    {
+        return true;
+    }
+  
 }
 
 /**
@@ -29,6 +45,7 @@ function isOdd(n) {
  * Hint: you can solve this without writing any loops!
  */
 function oddsSmallerThan(n) {
+    return Math.floor(n / 2);
   // Your code here
 }
 
@@ -43,7 +60,11 @@ function oddsSmallerThan(n) {
  * squareOrDouble(9) -> 81
  */
 function squareOrDouble(n) {
-  // Your code here
+    if (n % 2 !== 0) {
+        return n * n;
+    } else if (n % 2 === 0) {
+        return n * 2;
+    }
 }
 
 /**
@@ -64,6 +85,32 @@ function squareOrDouble(n) {
  *    ageFromCivilID(297111012345) -> 20
  */
 function ageFromCivilID(civilID) {
+    let today = new Date();
+   // today.setFullYear = today.getFullYear();
+    //today.setMonth = today.getMonth();
+   // today.setDate = today.getDate();
+
+    let civilYear;
+
+    if (civilID[0] === '1')
+        civilYear = 1800;
+    if (civilID[0] === '2')
+        civilYear = 1900;
+    if (civilID[0] === '3')
+        civilYear === 2000;
+
+    civilYear += parseInt(civilID[1]) * 10 + parseInt(civilID[2]);
+    let civilMonth = parseInt(civilID[3]) * 10 + parseInt(civilID[4]);
+    let civilDate = parseInt(civilID[5]) * 10 + parseInt(civilID[6]);
+
+  //  console.log(civilYear);
+    //console.log(civilMonth);
+    //console.log(civilDate);
+    let bday = new Date();
+    bday.setFullYear = civilYear;
+    bday.setMonth = civilMonth;
+    bday.setdate = civilDate;
+    //console.log(today-bday)
   // Your code here
 }
 
